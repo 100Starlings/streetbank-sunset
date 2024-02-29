@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="/favicon.ico" rel="icon" type="image/vnd.microsoft.icon">
+  <meta
+    content="Streetbank puts you in touch with your community, bringing neighbourboods closer and making the world a bit nicer. See members living within one mile, make requests on the community noticeboard, lend items, give away unwanted stuff and ask for help."
+    name="description">
+  <meta
+    content="streetbank, local, neighbourhood, lending, give away, give help, help offered, one mile, community, freecycle, freecycling"
+    name="keywords">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Streetbank - Share things with your neighbours</title>
+</head>
+
+<body>
+  <navbar class="fixed top-0 left-0 z-50 bg-white px-6 py-4 flex items-center w-screen">
+    <div class="max-w-5xl mx-auto w-full">
+      <img src="assets/streetbank-logo.svg" alt="Streetbank logo" class="w-[8rem]">
+    </div>
+  </navbar>
+  <main
+    class="text-white font-['Montserrat'] relative min-h-screen w-screen overflow-x-hidden flex items-center p-10 bg-blue-300 font"
+    style="background-image: url('assets/blue_texture.png'); background-size: fill">
+    <div class="flex flex-col gap-10 mx-auto items-center mb-[10%]">
+      <h1 class="text-3xl md:text-[3.5rem] flex text-center md:leading-[4rem]">Share things with<br>your neighbours</h1>
+      <div class="flex flex-col items-center gap-2">
+        <img src="assets/times_logo.svg" alt="Streetbank logo" class="w-[8rem]">
+        <p class="text-center text-xl md:text-2xl">"One of the 50 websites<br>you can't live without"</p>
+      </div>
+      <p class="text-center text-xl md:text-2xl text-gray-200">Over 3,117 neighbours shared over 135,883 things</p>
+      <button onclick="openDialog()" class="bg-[#F89831] px-10 py-4 thanks text-lg md:text-2xl font-base">Thank you and
+        good
+        bye!</button>
+    </div>
+    <img src="assets/people.svg" alt="Streetbank logo" class="absolute bottom-0 left-0 w-full">
+
+    <dialog class="dialog" id="dialog" open>
+      <div class="dialog-content">
+        <h1>We are saying goodbye!</h1>
+        <p>Streetbank has closed on 1st March. We are so grateful to everyone who has made the community such a
+          special place. </p>
+        <p>When we launched in May 2010, we had a hope and belief that neighbours are trustworthy, kind and generous -
+          we could not have dreamed just how much, having seen countless acts of generosity spark more acts of kindness.
+          In fact, over the life of the project, we estimate:
+        </p>
+        <p>
+          36,000 meetings between generous neighbours took place<br>
+          £1.2m worth of preloved goods were shared<br>
+          445,000 kilos of useful things were diverted from landfill
+        </p>
+        <p>Since we launched there have been many other similar services launched that have proven to be more viral,
+          more able to reach a critical mass in more neighbourhoods.</p>
+        <p>These busier services have meant that our community stopped growing several years ago and doesn't justify
+          continuing.</p>
+        <p>So two things. First, thank you for making Streetbank an amazing community. We heard so many stories that put
+          our faith in humanity. Second, we salute these other services and hope that you will use them and embue them
+          with the same goodness your brought to Streetbank!</p>
+      </div>
+      <button class="close-button" id="close-btn">Close</button>
+    </dialog>
+
+
+  </main>
+
+  <script>
+    const closeButton = document.getElementById("close-btn");
+    closeButton.addEventListener("click", () => {
+      document.querySelector("dialog").close();
+    });
+
+    openDialog = () => {
+      document.querySelector("dialog").showModal();
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: Montserrat, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .thanks {
+      box-shadow: -1px 1px #ffbf00, -2px 2px #ffbf00, -3px 3px #ffbf00, -4px 4px #ffbf00, -5px 5px #ffbf00, -6px 6px #ffbf00, -7px 7px #ffbf00;
+    }
+
+    .thanks:hover {
+      background: #ffbf00;
+      box-shadow: 1px -1px #ffbf00, 2px 2px #fc982d, 3px 3px #fc982d, 4px 4px #fc982d, 5px 5px #fc982d, 6px 6px #fc982d, 7px 7px #fc982d;
+    }
+
+    .dialog {
+      position: fixed;
+      border: 1px solid #fc982d;
+      z-index: 1000;
+      width: 100%;
+      max-width: 95vw;
+      max-height: 84dvh;
+      background-color: rgb(255, 255, 255, 0.66);
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+      overflow-y: scroll;
+
+      @media (min-width: 640px) {
+        padding: 3rem;
+        max-width: 800px;
+        max-height: auto !important;
+      }
+    }
+
+    .dialog-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .dialog p {
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .dialog h1 {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dialog h6 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .close-button {
+      margin-top: 2rem;
+      box-shadow: -1px 1px #ffbf00, -2px 2px #ffbf00, -3px 3px #ffbf00, -4px 4px #ffbf00, -5px 5px #ffbf00, -6px 6px #ffbf00, -7px 7px #ffbf00;
+      background: #fc982d;
+      padding: 0.5rem 1.5rem;
+      text-transform: uppercase;
+      color: white;
+      display: block;
+      text-align: center;
+      font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .close-button:hover {
+      background: #ffbf00;
+      box-shadow: 1px -1px #ffbf00, 2px 2px #fc982d, 3px 3px #fc982d, 4px 4px #fc982d, 5px 5px #fc982d, 6px 6px #fc982d, 7px 7px #fc982d;
+    }
+  </style>
+</body>
+
+</html>
